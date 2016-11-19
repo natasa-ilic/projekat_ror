@@ -1,2 +1,2 @@
-puts "Hello worldasds"
+puts "Hello world"
 
