@@ -11,9 +11,9 @@ Rails.application.routes.draw do
 	root 'home#index'
 	
 	get '/about' => 'home#about'
-	
 	get '/help' => 'home#help'
+	get '/login' => 'home#login'
 	
-	
+	resources :products
  
 end

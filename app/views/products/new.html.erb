@@ -1,0 +1,12 @@
+<h1>New Product</h1>
+<br/>
+
+<% if @product.errors.any? %>
+	<ul class="validation-errors">
+		<% @product.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= render 'form', text_button: 'Save' %>
