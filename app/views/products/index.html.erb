@@ -1,1 +1,33 @@
-<h1>Products list</h1>
+<div class="row">
+  <div class="col-md-8">
+    <h1>All products</h1>
+
+    <div class="row">
+      <div class="col-md-12">
+        <%= link_to products_path(sort: 'price_desc'), class: 'btn btn-default' do %>
+          Price <span class="glyphicon glyphicon-chevron-down"></span>
+        <% end %>
+
+        <%= link_to products_path(sort: 'price_asc'), class: 'btn btn-default' do %>
+          Price <span class="glyphicon glyphicon-chevron-up"></span>
+        <% end %>
+      </div>
+    </div>
+
+    <%= render 'table', products: @products %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <h1>Cheap products</h1>
+    <%= render 'table', products: @products_for_poor_people %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <h1>Expensive products</h1>
+    <%= render 'table', products: @products_for_rich_guys %>
+  </div>
+</div>

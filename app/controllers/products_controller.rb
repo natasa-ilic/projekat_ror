@@ -1,6 +1,15 @@
 class ProductsController < ApplicationController
 	
 	def index
+		@products = Product.all
+		
+		unless params[:sort].blank?
+			@products = @products.order(price: :asc)  if params[:sort] == 'price_asc'
+			@products = @products.order(price: :desc) if params[:sort] == 'price_desc'
+		end
+		
+		@products_for_poor_people = Product.ordered_cheap_products(100)
+    @products_for_rich_guys   = Product.ordered_expensive_products(100)
 	end
 	
 	def new

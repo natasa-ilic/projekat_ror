@@ -4,27 +4,16 @@
   <title>Demo2</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %>
+	<%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<div>
-	<div id='menu'>
-		<ul>
-			<li><a href="<%= root_url %>">Home</li>
-			<li><a href="<%= about_url %>">About</li>
-			<li><a href="<%= help_url %>">Help</li>
-		</ul>
-		<ul>
-			<li><%= link_to('Home', root_path) %></li>
-			<li><%= link_to 'About', about_path %></li>
-			<li><%= link_to 'Help', help_path %></li>
-		</ul>
-	</div>
-
-	<div id='content'>
-<%= yield %>
-</div>
+<div class='container'>
+	<%= render 'shared/header' %>
+	
+	<%= yield %>
 </div>
 
 </body>

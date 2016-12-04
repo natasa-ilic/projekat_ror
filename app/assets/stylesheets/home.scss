@@ -1,3 +1,30 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$primaryColor: red;
+$secondaryColor: blue;
+
+%button{
+	color: #fff;
+	width: 120px;		
+	height: 40px;
+	display: inline-block;
+	text-align: center;
+	line-height: 40px;
+}
+
+.button-red{
+	background: $primaryColor;
+	@extend %button;
+}
+
+.button-blue{
+	background: $secondaryColor;
+	@extend %button;
+}
+
+#logo{
+	position: relative;
+	top: -20px;
+}
