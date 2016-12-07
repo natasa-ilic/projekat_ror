@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h1>Create Order</h1>
+			<br></br>
+
+			<%= form_for @order do |form| %>
+				<%= form.label :product_id %>
+				<%= form.collection_select :product_id, Product.all, :id, :name, {prompt: true}, {class: 'form-control'} %>
+				
+				<br/><br/>
+				
+				<%= form.label :user_id %>
+				<%= form.collection_select :user_id, User.all, :id, :username, {prompt: true}, {class: 'form-control'} %>
+					
+				<br/><br/>
+
+				<%= form.label :quantity %>
+				<%= form.text_field :quantity, class: 'form-control' %>
+				
+				<br/><br/>
+
+				<%= form.submit params[:action] == 'new' ? 'Save' : 'Update' %>
+		<% end %>
+	</div>
+</div>

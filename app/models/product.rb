@@ -1,6 +1,9 @@
 class Product < ActiveRecord::Base
 #pripada sellerima
 	belongs_to :seller
+
+	has_many :orders
+	has_many :users, through: :orders
 	
 	validates :name, presence: true, length: { minimum: 2, maximum: 6 }
 	validates :price, presence: true, numericality: true

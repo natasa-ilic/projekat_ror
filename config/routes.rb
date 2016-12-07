@@ -13,7 +13,12 @@ Rails.application.routes.draw do
 	get '/about' => 'home#about'
 	get '/help' => 'home#help'
 	get '/login' => 'home#login'
+
 	
 	resources :products
- 
+	resources :sellers
+	resources :orders, only: [:index, :new, :create, :show]
+
+	# resources :orders, except: [:edit, :update, :destroy]
+
 end

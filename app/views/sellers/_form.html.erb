@@ -1,0 +1,13 @@
+<%= form_for @seller do |form| %>
+	<%= form.label :name %>
+	<%= form.text_field :name %>
+	
+	<br/><br/>
+	
+	<%= form.label :about %>
+	<%= form.text_area :about %>
+	
+	<br/><br/>
+
+	<%= form.submit text_button %>
+<% end %>

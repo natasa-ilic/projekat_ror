@@ -1,0 +1,30 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h1>Order details</h1>
+
+		<table class="table">
+			<tbody>
+				<tr>
+					<td><strong>ID</strong></td>
+					<td><%= @order.id %></td>
+				</tr>
+				<tr>
+					<td><strong>Product</strong></td>
+					<td><%= @order.product.name %></td>
+				</tr>
+				<tr>
+					<td><strong>User</strong></td>
+					<td><%= @order.user.username %></td>
+				</tr>
+				<tr>
+					<td><strong>Quantity</strong></td>
+					<td><%= @order.quantity %></td>
+				</tr>
+				<tr>
+					<td><strong>Total</strong></td>
+					<td><%= @order.total %></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
