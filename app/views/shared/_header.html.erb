@@ -10,6 +10,13 @@
       <li><%= link_to 'Products', products_path %></li>
       <li><%= link_to 'Sellers', sellers_path %></li>
       <li><%= link_to 'Orders', orders_path %></li>
+      <li><%= link_to 'Log out', logout_path, method: :delete %></li>
+
+
+      <% unless logged_in? %>
+        <%= render_link 'log in', new_session_path %>
+        <%= render_link 'sign up', new_user_path %>
+      <% end %>
 
     </ul>
   </div>
