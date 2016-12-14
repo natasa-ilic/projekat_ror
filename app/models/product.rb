@@ -3,7 +3,10 @@ class Product < ActiveRecord::Base
 	belongs_to :seller
 
 	has_many :orders
-	has_many :users, through: :orders
+	has_many :buyers, through: :orders, class_name: 'User'
+
+	has_many :reviews
+	has_many :reviewers, through: :reviews, class_name: 'User'
 	
 	validates :name, presence: true, length: { minimum: 2, maximum: 6 }
 	validates :price, presence: true, numericality: true

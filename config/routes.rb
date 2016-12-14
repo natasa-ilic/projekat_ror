@@ -13,15 +13,18 @@ Rails.application.routes.draw do
 	get '/about' => 'home#about'
 	get '/help' => 'home#help'
 	get '/login' => 'home#login'
-	delete '/logout' => 'sessions#destroy'
-
 	
 	resources :products
 	resources :sellers
 	resources :orders, only: [:index, :new, :create, :show]
 	resources :users, only: [:new, :create]
-	resources :sessions, only: [:new, :create, :destroy]
+	resource  :session, only: [:new, :create, :destroy]
+	resources :reviews, only: [:create]
 
 	# resources :orders, except: [:edit, :update, :destroy]
+
+	namespace :admin do
+		resources :products
+	end
 
 end

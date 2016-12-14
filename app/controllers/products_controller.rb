@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 	
+	before_action :authorize_user
+
 	def index
 		@products = Product.all
 		
@@ -10,6 +12,13 @@ class ProductsController < ApplicationController
 		
 		@products_for_poor_people = Product.ordered_cheap_products(100)
     @products_for_rich_guys   = Product.ordered_expensive_products(100)
+
+    respond_to do |format|
+    	format.html
+    	format.json {render json: @products.to_json}
+    	format.xml {render xml: @products.to_xml}
+
+    end
 	end
 	
 	def new
@@ -40,6 +49,10 @@ class ProductsController < ApplicationController
 		end
 	end
 	
+	def show
+		@product = Product.find(params[:id])
+	end
+
 	private
 	
 	def product_params

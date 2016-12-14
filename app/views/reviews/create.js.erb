@@ -1,0 +1,8 @@
+<% if @review.persisted? %>
+	$('#product-reviews').prepend("<%= escape_javascript render 'reviews/review', review: @review %>");
+	$('#myModal').modal('toggle');
+<% elsif @review.errors.any? %>
+	$('.err').html('<p><%= @review.errors.full_messages[0] %></p>')
+<% else %>
+	alert('Server error :(')
+<% end %>
